@@ -23,6 +23,7 @@ React Coding: Write a countdown clock react component that has a function prop t
 
 class App extends Component {
     constructor(props) {
+        super(props)
         this.state = {
             time: 60
         };
@@ -33,7 +34,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        var interval = setInerval(
+        var interval = setInterval(
             () => {
                 if(this.state.time > 0) {
                     this.decreasing()
@@ -49,7 +50,7 @@ class App extends Component {
 
     render() {
         return (
-            <div> {{this.state.time}} </div>
+            <div> {this.state.time} </div>
         )
     }
 
