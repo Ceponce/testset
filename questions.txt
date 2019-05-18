@@ -21,6 +21,40 @@ function mul(x) {
 
 React Coding: Write a countdown clock react component that has a function prop that will format the time it displays (*you can code in another language if you prefer)
 
+class App extends Component {
+    constructor(props) {
+        this.state = {
+            time: 60
+        };
+        this.decreasing = this.decreasing.bind(this)
+    }
+    decreasing() {
+        this.setState({time: (this.state.time - 1)})
+    }
+
+    componentDidMount() {
+        var interval = setInerval(
+            () => {
+                if(this.state.time > 0) {
+                    this.decreasing()
+                } else {
+                    clearInterval(this.interval);
+                }
+            }, 1000
+        )
+    }
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    render() {
+        return (
+            <div> {{this.state.time}} </div>
+        )
+    }
+
+}
+
 Which of the following code snippet append an element value at the end of the array, arr?
 
 a) arr[arr.length+1] = value <------------------------------------ CORRECT ANSWER
